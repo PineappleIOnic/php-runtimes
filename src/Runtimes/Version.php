@@ -20,6 +20,11 @@ class Version
     public $image;
 
     /**
+     * @var string
+     */
+    public $runImage;
+
+    /**
      * @var array
      */
     public $supports;
@@ -32,12 +37,13 @@ class Version
      * @param string $image
      * @param array $supports
      */
-    public function __construct(string $version, string $base, string $image, array $supports)
+    public function __construct(string $version, string $base, string $image, array $supports, string $runImage = $image)
     {
         $this->version = $version;
         $this->base = $base;
         $this->image = $image;
         $this->supports = $supports;
+        $this->runImage = $runImage;
     }
 
     /**
@@ -52,7 +58,8 @@ class Version
                 'version' => $this->version,
                 'base' => $this->base,
                 'image' => $this->image,
-                'supports' => $this->supports
+                'supports' => $this->supports,
+                'runImage' => $this->runImage
             ];
     }
 }
